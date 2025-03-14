@@ -61,23 +61,24 @@ class Fighter extends Sprite {
       framesMax = 1,
       offset = { x: 0, y: 0 },
       sprites,
-      attackBox = { offset: {}, width: undefined, height: undefined }
+      attbox = { offset: {}, width: undefined, height: undefined }
   }) {
       super({ position, imageSrc, scale, framesMax, offset });
 
       this.velocity = velocity;
       this.width = 50;
       this.height = 150;
-      this.attackBox = {
+      this.attbox = {
           position: { x: this.position.x, y: this.position.y },
-          offset: attackBox.offset,
-          width: attackBox.width,
-          height: attackBox.height
+          offset: attbox.offset,
+          width: attbox.width,
+          height: attbox.height
       };
 
       this.color = color;
-      this.isAttacking = false;
+      this.strike = false;
       this.hp = 100;
+
       this.framesCurrent = 0;
       this.framesElapsed = 0;
       this.framesHold = 5;
@@ -94,8 +95,8 @@ class Fighter extends Sprite {
       this.draw();
       if (!this.dead) this.animateFrames();
 
-      this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
-      this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
+      this.attbox.position.x = this.position.x + this.attbox.offset.x;
+      this.attbox.position.y = this.position.y + this.attbox.offset.y;
 
       this.position.x += this.velocity.x;
       this.position.y += this.velocity.y;
@@ -110,10 +111,10 @@ class Fighter extends Sprite {
 
   attack() {
       this.switchSprite('attack1');
-      this.isAttacking = true;
+      this.strike = true;
   }
 
-  takeHit() {
+  pegarhit() {
       this.hp -= 20;
       if (this.hp <= 0) {
           this.switchSprite('death');
