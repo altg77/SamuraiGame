@@ -25,18 +25,18 @@ const player = new Fighter({
     position: { x: 0, y: 0 },
     velocity: { x: 0, y: 0 },
     offset: { x: 0, y: 0 },
+
     imageSrc: './img/samuraiMack/Idle.png',
     framesMax: 8,
     scale: 2.5,
     offset: { x: 215, y: 157 },
-    ukey: '', // Inicializa a tecla de movimento
     sprites: {
         idle: { imageSrc: './img/samuraiMack/Idle.png', framesMax: 8 },
         run: { imageSrc: './img/samuraiMack/Run.png', framesMax: 8 },
         jump: { imageSrc: './img/samuraiMack/Jump.png', framesMax: 2 },
         fall: { imageSrc: './img/samuraiMack/Fall.png', framesMax: 2 },
         attack1: { imageSrc: './img/samuraiMack/Attack1.png', framesMax: 6 },
-        takeHit: { imageSrc: './img/samuraiMack/Take Hit - white silhouette.png', framesMax: 4 },
+        pegarhit: { imageSrc: './img/samuraiMack/Take Hit - white silhouette.png', framesMax: 4 },
         death: { imageSrc: './img/samuraiMack/Death.png', framesMax: 6 }
     },
     attbox: {
@@ -56,7 +56,6 @@ const pc = new Fighter({
     framesMax: 4,
     scale: 2.5,
     offset: { x: 215, y: 167 },
-    ukey: '', // Inicializa a tecla de movimento
     sprites: {
         idle: { imageSrc: './img/kenji/Idle.png', framesMax: 4 },
         run: { imageSrc: './img/kenji/Run.png', framesMax: 8 },
